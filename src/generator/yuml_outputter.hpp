@@ -122,6 +122,7 @@ public:
             out << '[' << relationship.get_destination() << "]\n";
         }
 
+        return true;
 	}
 
 };
