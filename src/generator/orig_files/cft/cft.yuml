@@ -3,7 +3,7 @@
 [ ｛abstract｝\nMyOperatingSystemWindow|- name: String;- ID: WindowID;]
 [ ｛abstract｝\nMyApplicationWindow|- myApplicationContent: Content;]
 [«datatype»\nWindowID|- cool: String;]
-[«datatype»\nContent|- currentContent: String;|+ setContent(inout newContent: String);+ displayContent();]
+[«datatype»\nContent|- currentContent: String|+ setContent(inout newContent: String);+ displayContent();]
 [«interface»\nWindow]^-[ ｛abstract｝\nMyOperatingSystemWindow]
 [ ｛abstract｝\nMyOperatingSystemWindow]^-[ ｛abstract｝\nMyApplicationWindow]
 [ ｛abstract｝\nMyOperatingSystemWindow]++-name>[«datatype»\nString]

@@ -45,13 +45,17 @@ public:
             if(aclass->get_has_field() || aclass->get_has_method())
                 out << '|';
 
-            for(const srcuml_attribute & attribute : aclass->get_attributes()) {
-                if(attribute.get_is_static()) {
+            const auto& attributes = aclass->get_attributes();
+            for (auto it = attributes.begin(); it != attributes.end(); ++it) {
+                const srcuml_attribute& attribute = *it;
+                if (attribute.get_is_static()) {
                     static_outputter::output(out, attribute);
                 } else {
                     out << attribute;
                 }
-                out << ';';
+                if (std::next(it) != attributes.end()) {
+                    out << ';';
+                }
             }
 
             if(aclass->get_has_method())
