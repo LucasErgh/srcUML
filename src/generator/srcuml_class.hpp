@@ -232,10 +232,15 @@ private:
 
         }
 
-        if((!has_constructor && !assignment)
-            || (has_public_default_constructor && has_public_copy_constructor && has_public_assignment)) {
+        if (((!has_constructor && !assignment)
+            || (has_public_default_constructor
+            && has_public_copy_constructor
+            && has_public_assignment))
+            && data->parents.empty()
+        ){
             is_datatype = true;
         }
+   
 
         if(    !has_constructor
             && !has_field
