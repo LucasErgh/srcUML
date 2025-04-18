@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU General Public License
 # along with srcUML.  If not, see <http://www.gnu.org/licenses/>.
 
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 4.0.0)
 project(srcUML)
 
 enable_testing()
