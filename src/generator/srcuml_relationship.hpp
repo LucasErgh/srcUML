@@ -173,7 +173,20 @@ private:
 
             for(const ClassPolicy::ParentData & parent_data : aclass->get_data().parents) {
 
-                std::map<std::string, std::shared_ptr<srcuml_class>>::iterator parent = class_map.find(parent_data.name);
+                for (auto cur : class_map){
+                    std::cerr << "class_map names: " << cur.first << '\n';
+                }
+
+                std::map<std::string, std::shared_ptr<srcuml_class>>::iterator parent;
+                auto pos = parent_data.name.find_last_of("::");
+                std::cerr << "Parent name: " << parent_data.name << '\n';
+                if (pos != std::string::npos){
+                    std::string nameNoPrefix = std::string(parent_data.name).erase(0, pos + 1);
+                    parent = class_map.find(nameNoPrefix);
+                    std::cerr << "Name no prefix: " << nameNoPrefix << '\n';
+                } else {
+                    parent = class_map.find(parent_data.name);
+                }
 
                 /** @todo should I show these? */
                 if(parent == class_map.end()) continue;
