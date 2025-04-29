@@ -19,6 +19,7 @@
 # along with srcUML.  If not, see <http://www.gnu.org/licenses/>.
 
 cmake_minimum_required(VERSION 4.0.0)
+set(CMAKE_BUILD_TYPE Debug)
 project(srcUML)
 
 enable_testing()

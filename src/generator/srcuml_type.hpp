@@ -239,6 +239,10 @@ private:
 
     void resolve_type() {
 
+        if (!data.get()){
+            return;
+        }
+
         std::vector<std::pair<void *, TypePolicy::TypeType>>::const_reverse_iterator citr;
         for(citr = data->types.rbegin(); citr != data->types.rend(); ++citr) {
 
